@@ -31,6 +31,11 @@ func multiply(x, y int) {
 	printer()
 }
 
+func returnsMultipleValues() (int, string) {
+	// Write something funny here
+	return rand.Intn(100), "Here's a random number for you!"
+}
+
 func main() {
 	fmt.Println(add(5, 3))
 
@@ -38,4 +43,7 @@ func main() {
 	fmt.Printf("The result of subtraction is: %d\n", subtractResult)
 
 	multiply(4, 7)
+
+	randomNumber, message := returnsMultipleValues()
+	fmt.Printf("%s The random number is: %d\n", message, randomNumber)
 }
