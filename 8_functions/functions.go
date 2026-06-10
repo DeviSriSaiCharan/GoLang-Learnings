@@ -36,6 +36,21 @@ func returnsMultipleValues() (int, string) {
 	return rand.Intn(100), "Here's a random number for you!"
 }
 
+// Can take a variable number of arguments of any type, and it will print each argument with its index.
+func variadicFunction(random ...any) {
+	for i, v := range random {
+		fmt.Printf("Argument %d: %v\n", i, v)
+	}
+}
+
+func sum(nums ...int) int {
+	total := 0
+	for _, num := range nums {
+		total += num
+	}
+	return total
+}
+
 func main() {
 	fmt.Println(add(5, 3))
 
@@ -46,4 +61,12 @@ func main() {
 
 	randomNumber, message := returnsMultipleValues()
 	fmt.Printf("%s The random number is: %d\n", message, randomNumber)
+
+	variadicFunction("Hello, world!", 42, true)
+
+	nums := []int{1, 2, 3, 4, 5}
+
+	// The ... operator is used to unpack the slice nums into individual arguments for the sum function.
+	totalSum := sum(nums...)
+	fmt.Printf("The total sum is: %d\n", totalSum)
 }
